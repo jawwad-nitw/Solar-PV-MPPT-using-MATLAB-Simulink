@@ -1,0 +1,32 @@
+>> % 1. Create the simulation time vector from 0 to 130 seconds (10-second intervals)
+% This maps directly from 5:30 AM (0s) to 6:30 PM (130s)
+time_steps = [0; 10; 20; 30; 40; 50; 60; 70; 80; 90; 100; 110; 120; 130];
+
+% 2. Define the 5 Irradiance signals (rows correspond to 5:30 AM through 6:30 PM)
+% (You can type over these numbers right now if you want to change them)
+tues_june1  = [36; 218; 434; 644; 818; 941; 1003; 1001; 924; 789; 608; 393; 176; 12];
+tues_june8  = [37; 222; 441; 648; 824; 950; 1011; 1019; 942; 801; 612; 396; 178; 11];
+tues_june15 = [12; 182; 392; 596; 770; 898; 966; 1016; 938; 798; 614; 400; 185; 16];
+tues_june22 = [32; 212; 430; 639; 818; 944; 1005; 1018; 944; 809; 628; 414; 195; 22];
+tues_june29 = [27; 199; 409; 610; 781; 905; 968; 965; 897; 770; 596; 394; 187; 21];
+
+% 3. Bundle them into ONE master parallel matrix variable for Simulink
+% Format: [Time, Signal1, Signal2, Signal3, Signal4, Signal5]
+G_input = [time_steps, tues_june1, tues_june8, tues_june15, tues_june22, tues_june29];
+
+% 3. Bundle them into ONE master parallel matrix variable for Simulink
+% Format: [Time, Signal1, Signal2, Signal3, Signal4, Signal5]
+G_input = [time_steps, tues_june1, tues_june8, tues_june15, tues_june22, tues_june29];
+>> % 1. Use the exact same 14 time-step marks (0s to 130s)
+time_steps = [0; 10; 20; 30; 40; 50; 60; 70; 80; 90; 100; 110; 120; 130];
+
+% 2. Define the 5 Temperature signals in Celsius (5:30 AM to 6:30 PM)
+tues_temp_june1  = [31.2; 32.8; 35; 37.3; 38.8; 39.6; 40.1; 40.3; 40.3; 40.2; 39.7; 38.7; 36.8; 34.5];
+tues_temp_june8  = [31.5; 32.9; 34.8; 36.5; 37.7; 38.5; 39; 39.3; 39.3; 39.2; 38.8; 37.9; 36.3; 34];
+tues_temp_june15 = [30.9; 32.4; 34.2; 36.3; 38.1; 39.7; 40.7; 41.3; 41.3; 40.8; 39.8; 38.2; 35.7; 33.2];
+tues_temp_june22 = [30.5; 32; 34.2; 36.6; 38.1; 38.8; 39.1; 39.1; 39; 38.6; 37.9; 36.7; 35; 32.9];
+tues_temp_june29 = [30.8; 32.2; 34.7; 37.1; 39.8; 41.6; 41.8; 41.7; 41.4; 41; 40.5; 39.6; 37.9; 35.7];
+
+% 3. Bundle into the master parallel Temperature matrix variable
+T_input = [time_steps, tues_temp_june1, tues_temp_june8, tues_temp_june15, tues_temp_june22, tues_temp_june29];
+%  4.
